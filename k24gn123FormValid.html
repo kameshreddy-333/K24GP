@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT12-3 Form Validation</title>
+    <script>
+        
+        function FormValidation1(){
+            var name=document.form1.name.value;
+            var password=document.form1.password.value;
+            var email=document.form1.email.value;
+            at=email.indexOf("@");
+            dot=email.lastIndexOf(".");
+            if(name==null || name==""){
+                alert("Name can't be blank.");
+                return false;
+            }
+            if(name.length<3){
+                alert("Name must be 3 characters long.");
+                return false;
+            }
+            if(at<1 || (dot-at<2)){
+                alert("Please Enter correct EmailId.");
+                
+                return false;
+            }
+            
+            else if(password.length<6){
+                alert("Password must be atleast 6 characters long.");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="form1" method="post" action="xyz.jsp" onsubmit="return FormValidation1()">
+        Name:<input type="text" name="name"><br>
+        Password:<input type="password" name="password"><br>
+        EmailId:<input type="email" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
